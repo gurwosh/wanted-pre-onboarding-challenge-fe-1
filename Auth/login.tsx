@@ -8,9 +8,9 @@ const Login =() =>{
     const [password,setPassword] = useState({'email': '','password': ''})
     const [buttonpass, SetBtnpass] =useState<Boolean>(false)
     const [buttonemail, SetEmapass] = useState<Boolean>(false)
-
     useEffect(()=>{
-      if(window.localStorage.getItem('login')){
+      
+      if(localStorage.getItem('login')){
         Router.push(`/`);
       }
 
