@@ -41,6 +41,8 @@ export default function Home() {
     console.log(Detail)
   }
 
+  //senddat api를 호출하는 부분
+
   const senddata =()=>{
      api.fetchCreateTodos(Detail,localStorage.getItem('login')).then((data)=>
      console.log(data) 
