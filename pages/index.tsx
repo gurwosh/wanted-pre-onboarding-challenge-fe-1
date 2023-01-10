@@ -28,12 +28,12 @@ export default function Home() {
     }
   },[])
 
-  const gologin =() =>{
+  const Gologin =() =>{
     Router.push(`/loginpage`);
 
   }
 
-  const gosignin=()=>{
+  const Gosignin=()=>{
     Router.push(`/sigininpage`);
 
   }
@@ -103,8 +103,8 @@ export default function Home() {
   return (
     <>
     <div>
-    <button onClick={gologin}>로그인페이지로</button>
-    <button onClick={gosignin}>회원가입페이지로</button>
+    <button onClick={Gologin}>로그인페이지로</button>
+    <button onClick={Gosignin}>회원가입페이지로</button>
     </div>
     <div>
     {displaytodo()}
