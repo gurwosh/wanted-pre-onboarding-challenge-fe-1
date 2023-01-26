@@ -1,12 +1,10 @@
-import { Outlet } from "react-router-dom";
-import ToDoLayout from "../components/ToDo/ToDoLayout";
-
-const Home = () => {
+import Router from "../router/router";
+const APP = () => {
   return (
-    <ToDoLayout>
-      <Outlet />
-    </ToDoLayout>
+  <>
+    <Router/>
+  </>
   );
 };
 
-export default Home;
+export default APP;

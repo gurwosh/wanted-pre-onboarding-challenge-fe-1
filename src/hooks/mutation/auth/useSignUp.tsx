@@ -3,14 +3,16 @@ import { useMutation } from "react-query";
 
 import AuthAPI from "../../../api/auth";
 import { IAuthResponse, IUserInfo } from "../../../types/auth";
-import { TNavigate } from "../../../types/navigate";
+import { useRouter } from 'next/router'
 
-const useSignUp = (navigate: TNavigate) => {
+const useSignUp = () => {
+  const router = useRouter()
+
   return useMutation((userInfo: IUserInfo) => AuthAPI.signUp(userInfo), {
     onSuccess: (data: AxiosResponse<IAuthResponse>) => {
       const token = data.data.token;
       localStorage.setItem("token", token);
-      navigate("/todos", { replace: true });
+      router.push("/");
     },
   });
 };

@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-
 import { ILayoutProps } from "./types";
 import { IChildrenProps } from "../../types/children";
 import LayoutView from "./Views/LayoutView";

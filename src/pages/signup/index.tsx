@@ -1,7 +1,7 @@
 import SignUpTemp from "../../components/Auth/SignUp";
 
 const SignUp = () => {
-  return <SignUpTemp />;
+  return <SignUpTemp />
 };
 
 export default SignUp;
