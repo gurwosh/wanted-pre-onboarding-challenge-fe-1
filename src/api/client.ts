@@ -1,14 +1,13 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { IError } from "../types/axios";
 import { toast } from "react-toastify";
-import customHistory from "../utils/history";
 
-const baseURL: string = process.env.REACT_APP_BASE_URL as string;
+const baseURL = 'http://localhost:8080' //string = process.env.REACT_APP_BASE_URL as string;
 
 const client = axios.create({ baseURL });
 
 client.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: any) => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -29,7 +28,6 @@ client.interceptors.response.use(
       toast.dismiss();
       toast.clearWaitingQueue();
       toast.warning("로그인을 해주세요.");
-      customHistory.replace("/auth");
     } else {
       toast.dismiss();
       toast.clearWaitingQueue();

@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 import useSignUp from "../../hooks/mutation/auth/useSignUp";
 import { emailValidator, passwordValidator } from "../../utils/validator";
 import { ISignUpProps } from "./types";
 import SignUpView from "./Views/SignUpView";
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const { mutate: signUpMutate } = useSignUp(navigate);
+  const [signUpMutate] = useSignUp();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validData, setValidData] = useState({
