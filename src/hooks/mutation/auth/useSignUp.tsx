@@ -8,8 +8,12 @@ const useSignUp = () => {
 
   const router = useRouter()
 
-  const useMutation = ((userInfo: IUserInfo) => AuthAPI.signUp(userInfo).then(
-    data => console.log(data)
+  const useMutation = ((userInfo: IUserInfo) => AuthAPI.signUp(userInfo).then((data) =>{
+    console.log(data)
+    const token = data.data.token;
+    localStorage.setItem("token", token);
+    router.push("/");
+  }
   )
   )
 
