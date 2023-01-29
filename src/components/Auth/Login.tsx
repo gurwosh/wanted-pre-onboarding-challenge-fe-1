@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/router'
 
 import LoginView from "./Views/LoginView";
 import { ILoginProps } from "./types";
@@ -7,8 +7,8 @@ import useLogin from "../../hooks/mutation/auth/useLogin";
 import { emailValidator, passwordValidator } from "../../utils/validator";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { mutate: loginMutate } = useLogin(navigate);
+  const router = useRouter();
+  const [loginMutate] = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validData, setValidData] = useState({
@@ -33,8 +33,8 @@ const Login = () => {
         : setValidData((p) => ({ ...p, isPasswordValid: false }));
       setPassword(e.target.value);
     },
-    onLogin: () => loginMutate({ email, password }),
-    onGoToSignUp: () => navigate("sign-up"),
+    onLogin: () => loginMutate({email,password}),
+    onGoToSignUp: () => router.push("/signup"),
     validData,
     isNotEnterEmail,
     isNotEnterPassword,

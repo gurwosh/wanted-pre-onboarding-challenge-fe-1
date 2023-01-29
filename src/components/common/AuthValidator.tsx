@@ -1,21 +1,20 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useRouter } from 'next/router'
 import useToastMessage from "../../hooks/common/useToastMessage";
 import { IChildrenProps } from "../../types/children";
 
 const AuthValidator = ({ children }: IChildrenProps) => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const router = useRouter();
   const showToast = useToastMessage();
-  const isAuthPage = pathname === "/auth" || pathname === "/auth/sign-up";
+  const isAuthPage = router.pathname === "/auth" || router.pathname === "/signup";
 
   useEffect(() => {
     const hasToken = !!localStorage.getItem("token");
     if (hasToken && isAuthPage) {
       showToast("warning", "이미 로그인 되어있습니다.");
-      navigate("/todos", { replace: true });
+      router.push("/");
     }
-  }, [navigate, showToast, isAuthPage]);
+  }, [showToast, isAuthPage]);
 
   return <>{children}</>;
 };

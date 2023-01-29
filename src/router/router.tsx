@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import AuthValidator from "../components/Common/AuthValidator";
 import Empty from "../components/Common/Empty";
-import Auth from "../pages/Auth";
+import Auth from "../pages/auth";
 import SignUp from "../pages/signup";
-import Home from "../pages/Home";
+import Home from "../pages/home";
 import ToDoDetail from "../pages/ToDoDetail[id]";
 
 const Router = () => {
@@ -14,12 +14,17 @@ const Router = () => {
     return (
     <div>
       <li>
-        <Link href="/">home</Link>
+        <Link href="/home">home</Link>
       </li>
       <li>  
         <Link href="/signup">signup!</Link>
       </li>
-    
+      <li>
+        <Link href= "/auth"> auth! </Link> 
+     
+
+      </li>
+
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
 import React from "react";
-import llama from "../../../assets/llama.svg";
 import { IEmptyContainerProps, IEmptyProps } from "../types";
 
 const Container = styled.div<IEmptyContainerProps>`
@@ -21,7 +20,6 @@ const StyledImg = styled.img`
 const EmptyView = ({ text, btn, containerHeight }: IEmptyProps) => {
   return (
     <Container containerHeight={containerHeight}>
-      <StyledImg src={llama} alt="empty page" />
       <Typography fontWeight={700}>{text}</Typography>
       {btn}
     </Container>
