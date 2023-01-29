@@ -42,7 +42,7 @@ const ToDoLayoutView = ({
         </Button>
       </BtnWrapper>
       <ContentWrapper>
-        <ToDoList />
+      <ToDoList/>  
         {isHomePage && (
           <Empty text="Todo를 추가하거나 왼쪽 탭을 이용하여 상세페이지에 들어가보세요." />
         )}

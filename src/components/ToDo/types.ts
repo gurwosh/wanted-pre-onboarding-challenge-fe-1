@@ -10,7 +10,7 @@ export interface IToDoLayoutProps extends IChildrenProps {
 }
 
 export interface IToDoListProps {
-  isLoading: boolean;
+ // isLoading: boolean;
   toDoList: IToDoData[] | undefined;
   selectedId: string | undefined;
   onPutToDo: () => void;

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRouter } from 'next/router'
 import { IChildrenProps } from "../../types/children";
 import { IToDoLayoutProps } from "./types";
 import ToDoLayoutView from "./Views/ToDoLayoutView";
 
 const ToDoLayout = ({ children }: IChildrenProps) => {
-  const { pathname } = useLocation();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
-  const isHomePage = pathname === "/todos";
+  const isHomePage = router.pathname === "/home";
 
   const ToDoLayoutProps: IToDoLayoutProps = {
     onOpenModal: () => setOpen(true),

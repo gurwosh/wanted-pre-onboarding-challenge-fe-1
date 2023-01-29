@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import usePostToDo from "../../hooks/mutation/toDo/usePostToDo";
 import { IAddToDoModalProps, IModalState } from "./types";
 import AddToDoModalView from "./Views/AddToDoModalView";
 
 const AddToDoModal = ({ onClose, open }: IModalState) => {
-  const navigate = useNavigate();
   const [toDoData, setToDoData] = useState({
     title: "",
     content: "",
   });
-  const { mutate: postToDoMutate } = usePostToDo(navigate);
+  const [postToDoMutate] = usePostToDo();
 
   const AddToDoModalProps: IAddToDoModalProps = {
     onCloseModal: () => {
